@@ -1,0 +1,75 @@
+html {
+	font-family: helvetica;
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+.wrapper {
+	width: 750px;
+	margin: 0 auto;
+}
+
+.header {
+	padding: 20px 0;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.container .text {
+	margin: 0 auto;
+	padding: 20px 0;
+	width: 600px;
+}
+
+.inputs {
+	padding: 20px 0 40px 0;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.inputs h2 {
+	text-align: center;
+}
+
+.input_row {
+	width: 600px;
+	margin: 10px auto;
+}
+
+.input_row:last-child {
+	margin-bottom: 0;
+}
+
+.input_row input {
+	font-size: 0.8em;
+	padding: 3px;
+	width: 140px;
+	margin: 0 20px;
+}
+
+.happy_face {
+	display: inline-block;
+	width: 29%;
+	text-align: center;
+}
+
+.happy_face img {
+	height: 100px;
+	margin: 0 auto;
+	vertical-align: middle;
+}
+
+.logo {
+	text-align: center;
+	display: inline-block;
+	width: 70%;
+	vertical-align: middle;
+}
+
+.logo img {
+	height: 50px;
+}
+
+.logo h1 {
+	margin: 0;
+}
