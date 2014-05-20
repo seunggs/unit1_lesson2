@@ -24,7 +24,6 @@ h1 {
 
 .inputs {
 	padding: 20px 0 40px 0;
-	border-bottom: 1px solid #e7e7e7;
 }
 
 .inputs h2 {
@@ -50,6 +49,8 @@ h1 {
 }
 
 .input_row:last-child {
+	padding: 20px 0 0 0;
+	text-align: right;
 	margin-bottom: 0;
 }
 
@@ -58,6 +59,13 @@ h1 {
 	padding: 3px;
 	width: 140px;
 	margin: 0 20px;
+}
+
+.errormsg {
+	display: inline-block;
+	color: red;
+	font-size: 0.9em;
+	margin: 0 5px 0 0;
 }
 
 .happy_face {
@@ -86,3 +94,4 @@ h1 {
 .logo h1 {
 	margin: 0;
 }
+

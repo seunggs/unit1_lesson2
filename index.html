@@ -23,37 +23,46 @@
 			</div>
 		</section>
 		<section class="container" ng-controller="mainController">
-			<div class="inputs">
+			<div class="inputs" ng-show="page1">
 				<h2>Provide the following words</h2>
-				<form name="ngMadlibs_form">
+				<form name="madlibs_form" ng-submit="validate(); submitted = true;" novalidate>
 					<div class="gender">
-						<input type="radio" value="male" ng-model="gender"> Male
-						<input type="radio" value="female" ng-model="gender"> Female
+						<input type="radio" value="male" name="male" ng-model="gender"> Male
+						<input type="radio" value="female" name="female" ng-model="gender"> Female
 					</div>
 					<div class="input_row">
-						<input type="text" ng-model="name">
-						<input type="text" ng-model="dirty_task">
-						<input type="text" ng-model="obnoxious_celebrity">
+						<input type="text" name="name" ng-model="name" required>
+						<input type="text" name="dirty_task" ng-model="dirty_task" required>
+						<input type="text" name="obnoxious_celebrity" ng-model="obnoxious_celebrity" required>
 					</div>
 					<div class="input_row">
-						<input type="text" ng-model="job_title">
-						<input type="text" ng-model="celebrity">
-						<input type="text" ng-model="huge_number">
+						<input type="text" name="job_title" ng-model="job_title" required>
+						<input type="text" name="celebrity" ng-model="celebrity" required>
+						<input type="number" name="huge_number" ng-model="huge_number" required>
 					</div>
 					<div class="input_row">
-						<input type="text" ng-model="tedious_task">
-						<input type="text" ng-model="useless_skill">
-						<input type="text" ng-model="adjective">
+						<input type="text" name="tedious_task" ng-model="tedious_task" required>
+						<input type="text" name="useless_skill" ng-model="useless_skill" required>
+						<input type="text" name="adjective" ng-model="adjective" required>
+					</div>
+					<div class="input_row">
+						<p class="errormsg" ng-if="madlibs_form.huge_number.$invalid && submitted">Please input a valid number.</p>
+						<p class="errormsg" ng-if="madlibs_form.$error.required && submitted">All fields are required.</p>
+						<input type="submit" value="Generate My Mad Lib">
 					</div>
 				</form>
 			</div>
-			<div class="text">
+			<div class="text" ng-show="page2">
 				<p>
 					{{name}} was a {{job_title}} who loved technology. Although {{name_sub}} loved parts of {{name_pos}} job, {{name_sub}} absolutely hated  {{tedious_task}} and {{dirty_task}}. So, {{name}} met with {{name_pos}} life mentor {{celebrity}} who told {{name_obj}} to learn how to {{useless_skill}} with Thinkful. Thinkful didn't offer a course on {{useless_skill}} so {{name_sub}} studied programming instead. 
 		 		</p>
 		 		<p>
 					What a great decision! With {{name_pos}} new skills, {{name}} built a {{adjective}} robot named {{obnoxious_celebrity}} that not only loved {{dirty_task}} but did it {{huge_number}} times faster. 
 				</p>
+				<div class="input_row">
+					<form ng-submit="reset()">
+						<input type="submit" value="Start Over">
+				</div>				
 			</div>
 		</section>
 
