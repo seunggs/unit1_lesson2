@@ -27,23 +27,23 @@
 				<h2>Provide the following words</h2>
 				<form name="madlibs_form" ng-submit="validate(); submitted = true;" novalidate>
 					<div class="gender">
-						<input type="radio" value="male" name="male" ng-model="gender"> Male
-						<input type="radio" value="female" name="female" ng-model="gender"> Female
+						<input type="radio" value="male" name="male" ng-model="formData.gender"> Male
+						<input type="radio" value="female" name="female" ng-model="formData.gender"> Female
 					</div>
 					<div class="input_row">
-						<input type="text" name="name" ng-model="name" required>
-						<input type="text" name="dirty_task" ng-model="dirty_task" required>
-						<input type="text" name="obnoxious_celebrity" ng-model="obnoxious_celebrity" required>
+						<input type="text" name="name" ng-model="formData.name" required>
+						<input type="text" name="dirty_task" ng-model="formData.dirty_task" required>
+						<input type="text" name="obnoxious_celebrity" ng-model="formData.obnoxious_celebrity" required>
 					</div>
 					<div class="input_row">
-						<input type="text" name="job_title" ng-model="job_title" required>
-						<input type="text" name="celebrity" ng-model="celebrity" required>
-						<input type="number" name="huge_number" ng-model="huge_number" required>
+						<input type="text" name="job_title" ng-model="formData.job_title" required>
+						<input type="text" name="celebrity" ng-model="formData.celebrity" required>
+						<input type="number" name="huge_number" ng-model="formData.huge_number" required>
 					</div>
 					<div class="input_row">
-						<input type="text" name="tedious_task" ng-model="tedious_task" required>
-						<input type="text" name="useless_skill" ng-model="useless_skill" required>
-						<input type="text" name="adjective" ng-model="adjective" required>
+						<input type="text" name="tedious_task" ng-model="formData.tedious_task" required>
+						<input type="text" name="useless_skill" ng-model="formData.useless_skill" required>
+						<input type="text" name="adjective" ng-model="formData.adjective" required>
 					</div>
 					<div class="input_row">
 						<p class="errormsg" ng-if="madlibs_form.huge_number.$invalid && submitted">Please input a valid number.</p>

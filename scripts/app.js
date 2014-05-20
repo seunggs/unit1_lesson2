@@ -1,14 +1,14 @@
 angular.module('myApp', [])
 .controller('mainController', function($scope){
-	$scope.name = 'Yo';
-	$scope.dirty_task = 'doing laundry';
-	$scope.obnoxious_celebrity = 'Paris Hilton';
-	$scope.job_title = 'CEO';
-	$scope.celebrity = 'Matt Damon';
-	$scope.huge_number = 1000000;
-	$scope.tedious_task = 'debugging';
-	$scope.useless_skill = 'investing';
-	$scope.adjective = 'beautiful';
+	$scope.formData.name = 'Yo';
+	$scope.formData.dirty_task = 'doing laundry';
+	$scope.formData.obnoxious_celebrity = 'Paris Hilton';
+	$scope.formData.job_title = 'CEO';
+	$scope.formData.celebrity = 'Matt Damon';
+	$scope.formData.huge_number = 1000000;
+	$scope.formData.tedious_task = 'debugging';
+	$scope.formData.useless_skill = 'investing';
+	$scope.formData.adjective = 'beautiful';
 
 	$scope.gender = 'male';
 	if($scope.gender === 'male') {
@@ -45,15 +45,7 @@ angular.module('myApp', [])
 		
 		init_pgview(1);
 
-		$scope.name = '';
-		$scope.dirty_task = '';
-		$scope.obnoxious_celebrity = '';
-		$scope.job_title = '';
-		$scope.celebrity = '';
-		$scope.huge_number = 0;
-		$scope.tedious_task = '';
-		$scope.useless_skill = '';
-		$scope.adjective = '';
+		$scope.formData = {};
 		
 	};
 });
