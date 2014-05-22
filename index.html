@@ -7,6 +7,7 @@
 		
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/animation.css">
 	</head>
 	<body class="wrapper">
 		<section class="header">
@@ -23,7 +24,7 @@
 			</div>
 		</section>
 		<section class="container" ng-controller="mainController">
-			<div class="inputs" ng-show="page1">
+			<div class="inputs page-change-animation" ng-show="page1">
 				<h2>Provide the following words</h2>
 				<form name="madlibs_form" ng-submit="validate(); submitted = true;" novalidate>
 					<div class="gender">
@@ -46,28 +47,33 @@
 						<input type="text" name="adjective" ng-model="formData.adjective" required>
 					</div>
 					<div class="input_row">
-						<p class="errormsg" ng-if="madlibs_form.huge_number.$invalid && submitted">Please input a valid number.</p>
+						<!-- why doesn't madlibs_form.huge_number.$error.number change to 'true' when I put in a string in huge_number? 
+						this is true in Angular documentation as well. What's the point of $error.number if it doesn't detect it? -->
+						<p class="errormsg">madlibs_form.huge_number.$error.number: {{ madlibs_form.huge_number.$error.number }}</p>
+						<p class="errormsg" ng-if="madlibs_form.huge_number.$error.number && submitted">Please input a valid number.</p>
 						<p class="errormsg" ng-if="madlibs_form.$error.required && submitted">All fields are required.</p>
 						<input type="submit" value="Generate My Mad Lib">
 					</div>
 				</form>
 			</div>
-			<div class="text" ng-show="page2">
+			<div class="text page-change-animation" ng-show="page2">
 				<p>
-					{{name}} was a {{job_title}} who loved technology. Although {{name_sub}} loved parts of {{name_pos}} job, {{name_sub}} absolutely hated  {{tedious_task}} and {{dirty_task}}. So, {{name}} met with {{name_pos}} life mentor {{celebrity}} who told {{name_obj}} to learn how to {{useless_skill}} with Thinkful. Thinkful didn't offer a course on {{useless_skill}} so {{name_sub}} studied programming instead. 
+					{{formData.name}} was a {{formData.job_title}} who loved technology. Although {{formData.name_sub}} loved parts of {{formData.name_pos}} job, {{formData.name_sub}} absolutely hated  {{formData.tedious_task}} and {{formData.dirty_task}}. So, {{formData.name}} met with {{formData.name_pos}} life mentor {{formData.celebrity}} who told {{formData.name_obj}} to learn how to {{formData.useless_skill}} with Thinkful. Thinkful didn't offer a course on {{formData.useless_skill}} so {{formData.name_sub}} studied programming instead. 
 		 		</p>
 		 		<p>
-					What a great decision! With {{name_pos}} new skills, {{name}} built a {{adjective}} robot named {{obnoxious_celebrity}} that not only loved {{dirty_task}} but did it {{huge_number}} times faster. 
+					What a great decision! With {{formData.name_pos}} new skills, {{formData.name}} built a {{formData.adjective}} robot named {{formData.obnoxious_celebrity}} that not only loved {{formData.dirty_task}} but did it {{formData.huge_number}} times faster. 
 				</p>
 				<div class="input_row">
 					<form ng-submit="reset()">
 						<input type="submit" value="Start Over">
+					</form>
 				</div>				
 			</div>
 		</section>
 
 		<!-- scripts -->
 		<script src="scripts/angular.min.js"></script>
+		<script src="scripts/angular-animate.min.js"></script>
 		<script src="scripts/app.js"></script>
 
 	</body>

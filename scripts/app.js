@@ -1,5 +1,8 @@
-angular.module('myApp', [])
+angular.module('myApp', ['ngAnimate'])
 .controller('mainController', function($scope){
+
+	$scope.formData = {};
+
 	$scope.formData.name = 'Yo';
 	$scope.formData.dirty_task = 'doing laundry';
 	$scope.formData.obnoxious_celebrity = 'Paris Hilton';
@@ -9,16 +12,16 @@ angular.module('myApp', [])
 	$scope.formData.tedious_task = 'debugging';
 	$scope.formData.useless_skill = 'investing';
 	$scope.formData.adjective = 'beautiful';
+	$scope.formData.gender = 'male';
 
-	$scope.gender = 'male';
-	if($scope.gender === 'male') {
-		$scope.name_sub = 'he';
-		$scope.name_obj = 'him';
-		$scope.name_pos = 'his';
-	} else if($scope.gender === 'female') {
-		$scope.name_sub = 'she';
-		$scope.name_obj = 'her';
-		$scope.name_pos = 'hers';
+	if($scope.formData.gender === 'male') {
+		$scope.formData.name_sub = 'he';
+		$scope.formData.name_obj = 'him';
+		$scope.formData.name_pos = 'his';
+	} else if($scope.formData.gender === 'female') {
+		$scope.formData.name_sub = 'she';
+		$scope.formData.name_obj = 'her';
+		$scope.formData.name_pos = 'hers';
 	}
 
 	function init_pgview(goto_page) {
@@ -26,10 +29,12 @@ angular.module('myApp', [])
 			$scope.page1 = true;
 			$scope.page2 = false;
 			$scope.submitted = false;
+			$scope.formData.gender = 'male';
 		} else if (goto_page === 2) {
 			$scope.page1 = false;
 			$scope.page2 = true;
-			$scope.submitted = true;			
+			$scope.submitted = true;
+			$scope.formData.gender = 'male';
 		}
  	}
 
